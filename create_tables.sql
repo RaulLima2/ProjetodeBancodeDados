@@ -1,12 +1,12 @@
 create table tbl_admin (
-    id int autoincrement primary key not null,
+    id_admin int auto_increment primary key not null,
     nome varchar(30) not null,
     telefone varchar(30) not null,
     cpf varchar(30) not null
 );
 
 create table tbl_medico(
-    id int autoincrement primary key not null,
+    id_medico int auto_increment primary key not null,
     crm varchar(30) not null,
     nome varchar(30) not null,
     telefone varchar(30) not null,
@@ -14,21 +14,24 @@ create table tbl_medico(
 );
 
 create table tbl_consulta(
-    codigo int autoincrement primary key not null,
+    codigo_consulta int auto_increment primary key not null,
+    data date not null,
     valor float not null,
     tipoPagamento int,
     contraint chk_valor check (valor > 0)
 );
 
 create table tbl_paciente(
-    cpf numeric(30) primary key not null,
-    nome varchar(30)
-    data_nascimento date,
-    telefone varchar(30)
-    email varchar(30)
+    id_paciente int auto_increment primary key not null,
+    cpf varchar(30) not null,
+    nome varchar(30) not null,
+    data_nascimento date not null,
+    telefone varchar(30) not null,
+    email varchar(30) not null,
 );
 
 create table tbl_convenio (
-    numero numeric(100) primary key not null,
+    id_convenio int auto_increment primary key not null,
+    numero numeric(65 ) not null,
     nome varchar(30) not null
 );
