@@ -17,8 +17,8 @@ create table tbl_consulta(
     codigo_consulta int auto_increment primary key not null,
     data date not null,
     valor float not null,
-    tipoPagamento int,
-    contraint chk_valor check (valor > 0)
+    tipo_pagamento int,
+    constraint chk_valor check (valor > 0.0)
 );
 
 create table tbl_paciente(
@@ -27,11 +27,11 @@ create table tbl_paciente(
     nome varchar(30) not null,
     data_nascimento date not null,
     telefone varchar(30) not null,
-    email varchar(30) not null,
+    email varchar(30) not null
 );
 
 create table tbl_convenio (
     id_convenio int auto_increment primary key not null,
-    numero numeric(65 ) not null,
+    numero numeric(65) not null,
     nome varchar(30) not null
 );
