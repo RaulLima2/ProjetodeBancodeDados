@@ -38,13 +38,13 @@ return (
 );
 
 # CRUD Table Paciente
-create function add_paciente(cpf varchar(30), nome varchar(30), data_nascimento date, telefone varchar(30), email varchar(30)) as
+create function add_paciente(cpf varchar(30), nome varchar(30), data_nascimento date, telefone varchar(30), email varchar(30))
 returns INT DETERMINISTIC
 return (
     insert into tbl_paciente value (cpf, nome, data_nascimento, telefone, email)
 );
 
-create function update_paciente(id_p int, cpf varchar(30), nome varchar(30), data_nascimento date, telefone varchar(30), email varchar(30)) as
+create function update_paciente(id_p int, cpf varchar(30), nome varchar(30), data_nascimento date, telefone varchar(30), email varchar(30))
 returns INT DETERMINISTIC
 return (
     update tbl_paciente p
@@ -52,7 +52,7 @@ return (
     where p.id_paciente = id_p
 );
 
-create function remove_paciente(id_p int) as
+create function remove_paciente(id_p int)
 return INT DETERMINISTIC
 returns (
     delete from tbl_paciente p where p.id_paciente = id_p
@@ -60,13 +60,13 @@ returns (
 
 
 # CRUD Admin
-create function add_admin(nome varchar(30), telefone varchar(30), cpf varchar(30)) as
+create function add_admin(nome varchar(30), telefone varchar(30), cpf varchar(30))
 returns INT DETERMINISTIC
 return (
     insert into tbl_admin value (nome, telefone, cpf)
 );
 
-create function update_admin(id_a int, nome varchar(30), telefone varhcar(30), cpf varchar(30)) as
+create function update_admin(id_a int, nome varchar(30), telefone varhcar(30), cpf varchar(30))
 returns INT DETERMINISTIC
 return (
     update tbl_admin a 
@@ -81,13 +81,13 @@ return (
 );
 
 # CRUD Medico
-create function add_medico(crm varchar(30), nome varchar(30), telefone varchar(30), cpf varchar(30)) as
+create function add_medico(crm varchar(30), nome varchar(30), telefone varchar(30), cpf varchar(30))
 returns INT DETERMINISTIC
 return (
     insert into tbl_medico value (crm, nome, telefone, cpf)
 );
 
-create function update_medico(novo_crm varchar(30), novo_nome varchar(30), novo_telefone varchar(30), novo_cpf varchar(30)) as
+create function update_medico(novo_crm varchar(30), novo_nome varchar(30), novo_telefone varchar(30), novo_cpf varchar(30))
 returns INT DETERMINISTIC
 return (
     update tbl_medico m
@@ -95,20 +95,20 @@ return (
     where m.id_medico = id_medico
 );
 
-create function remove_medico(id_m int) as
+create function remove_medico(id_m int)
 returns INT DETERMINISTIC
 return (
     delete from tbl_medico m where m.id_medico = id_m 
 );
 
 # CRUD Convenio
-create function add_convenio(numero numeric(65), nome varchar(30)) as
+create function add_convenio(numero numeric(65), nome varchar(30))
 returns INT DETERMINISTIC
 return (
     insert into tbl_convenio value (numero, nome)
 );
 
-create function update_convenio(id_c int, novo_numero numeric(65), novo_nome varchar(30)) as
+create function update_convenio(id_c int, novo_numero numeric(65), novo_nome varchar(30))
 returns INT DETERMINISTIC
 return (
     update tbl_convenio c
@@ -116,7 +116,7 @@ return (
     where c.id_convenio = id_c
 );
 
-create function remove_convenio_by_name(nome varchar(30)) as
+create function remove_convenio_by_name(nome varchar(30))
 returns INT DETERMINISTIC
 return (
     delete from tbl_convenio c where c.nome = nome
